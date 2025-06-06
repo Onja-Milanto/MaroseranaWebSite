@@ -83,10 +83,28 @@ const Home: React.FC = () => {
     <>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-
 <div className="absolute inset-0 z-0">
 
+<style>
+  {`
+    .hero-carousel,
+    .hero-carousel .carousel,
+    .hero-carousel .carousel-slider,
+    .hero-carousel .carousel .slide {
+      height: 100vh !important;
+      min-height: 500px;
+      max-height: 900px;
+    }
+    .hero-carousel img {
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      max-height: 900px;
+      object-fit: cover;
+    }
+  `}
+</style>
+<div className="hero-carousel">
   <Carousel
     autoPlay
     infiniteLoop
@@ -101,70 +119,91 @@ const Home: React.FC = () => {
   >
     <div>
       <img
-        src="../images/480939891_122118984584763157_6910716834191376106_n.jpg"
+        src="../images/bg11.jpg"
         alt="Slide 1"
-        className="w-full h-full object-cover"
       />
     </div>
     <div>
       <img
-        src="../images/490480664_122127652868763157_7588607709696531518_n.jpg"
+        src="../images/bg22.jpg"
         alt="Slide 2"
-        className="w-full h-full object-cover"
       />
     </div>
     <div>
       <img
-        src="../images/495332749_122132383676763157_2193582407893893346_n.jpg"
+        src="../images/bg33.jpg"
         alt="Slide 3"
-        className="w-full h-full object-cover"
+      />
+    </div>
+    <div>
+      <img
+        src="../images/bg4.jpg"
+        alt="Slide 4"
       />
     </div>
   </Carousel>
   <div className="absolute inset-0 bg-primary-700 opacity-5 z-10"></div>
 </div>
 
-          <div className="absolute inset-0 bg-primary-700 opacity-70"></div>
+          <div className="absolute inset-0 bg-primary-700 opacity-50"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
             <motion.div
-            className="flex flex-col items-center justify-center mb-6"
-            initial={false}
+              className="flex flex-col items-center justify-center mb-6"
+              initial={false}
             >
-            {/* "UC" slice in from left */}
-            <motion.span
+              {/* "UC" slice in from left */}
+              <motion.span
               className="block text-4xl md:text-6xl font-bold text-white"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
-            >
-              Unité des
-            </motion.span>
-            {/* "MaroSerana" slice in from right */}
-            <motion.span
-              className="block text-4xl md:text-6xl font-bold text-white"
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
-            >
-              Chercheurs
-            </motion.span>
-            {/* Combine them together after both are visible */}
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold text-white mt-2"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4, delay: 1.2 }}
-            >
-              MaroSerana
-            </motion.h1>
-            </motion.div>
-            <motion.p 
-            className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.6 }}
-            >
+              >
+              Unité des Chercheurs
+              </motion.span>
+                {/* "MaroSerana" with animated infinity gradient text */}
+                <style></style>
+                <motion.h1
+                className="text-4xl md:text-6xl font-bold mt-2 relative"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.4, delay: 1.2 }}
+                >
+                <span className="infinity-gradient-text">MaroSerana</span>
+                <style>
+                  {`
+                  .infinity-gradient-text {
+                  background: linear-gradient(
+                    270deg,
+                    #00eaff, /* fluo blue */
+                    #003366, /* marine blue */
+                    #ffffff, /* white */
+                    #00eaff,
+                    #003366,
+                    #ffffff
+                  );
+                  background-size: 200% 200%;
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  color: transparent;
+                  -webkit-text-fill-color: transparent;
+                  animation: infinity-gradient-move 6s linear infinite;
+                  }
+                  @keyframes infinity-gradient-move {
+                  0% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+                  }
+                  `}
+                </style>
+                </motion.h1>
+              </motion.div>
+              <motion.p 
+                className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1.6 }}
+              >
             {t('home.hero.slogan')}
           </motion.p>
 
@@ -199,9 +238,9 @@ const Home: React.FC = () => {
         </div>
         
       </section>
-      
+
       {/* About Section */}
-      <Section title={t('home.about.title')} bgColor="bg-gray-50">
+      <Section title={t('home.about.title')} titleCenter bgColor="bg-gray-50">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card>
             <div className="flex flex-col items-center text-center">
@@ -228,7 +267,7 @@ const Home: React.FC = () => {
         <div className="mt-8 text-center">
           <NavLink to="/about">
             <Button variant="primary" size="md">
-              {t('home.about.learnMore')} {/* À ajouter dans les traductions */}
+              {t('home.about.learnMore')} 
             </Button>
           </NavLink>
         </div>        

@@ -11,92 +11,143 @@ const Events: React.FC = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
   const [searchTerm, setSearchTerm] = useState('');
+  const [typeFilter, setTypeFilter] = useState<string>('');
   
   // Mock data
   const upcomingEvents = [
     {
       id: 1,
-      title: 'Annual Scientific Conference 2025',
+      title: 'La croissance économique malagasy : comprendre les facteurs qui la stimulent. Un essai de politique et perspectives pour Madagascar',
       date: '2025-06-15',
       time: '09:00 - 18:00',
-      location: 'Casablanca, Morocco',
-      type: 'conference',
-      image: 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'Join us for our annual scientific conference featuring keynote speakers from around the world.'
+      location: 'Hotel des Finances, Toliara',
+      type: 'séminaire',
+      image: '../images/economie_venir.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
     },
-    {
-      id: 2,
-      title: 'Workshop on Research Methodology',
-      date: '2025-05-20',
-      time: '14:00 - 17:00',
-      location: 'Online',
-      type: 'workshop',
-      image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'A hands-on workshop to improve your research methodology skills.'
-    },
-    {
-      id: 3,
-      title: 'Seminar on Publication Strategies',
-      date: '2025-05-10',
-      time: '10:00 - 12:00',
-      location: 'Madagascar, Morocco',
-      type: 'seminar',
-      image: 'https://images.pexels.com/photos/5427670/pexels-photo-5427670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'Learn effective strategies for publishing your research in high-impact journals.'
-    },
-    {
-      id: 4,
-      title: 'Grant Writing Workshop',
-      date: '2025-07-05',
-      time: '09:00 - 16:00',
-      location: 'Marrakech, Morocco',
-      type: 'workshop',
-      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'A comprehensive workshop on writing successful grant proposals.'
-    },
-    {
-      id: 5,
-      title: 'Networking Event for Young Researchers',
-      date: '2025-06-28',
-      time: '18:00 - 21:00',
-      location: 'Tangier, Morocco',
-      type: 'networking',
-      image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'An opportunity for young researchers to connect and share ideas.'
-    }
   ];
   
   const pastEvents = [
     {
       id: 101,
-      title: 'Research Symposium 2024',
-      date: '2024-11-20',
-      time: '09:00 - 17:00',
-      location: 'Casablanca, Morocco',
-      type: 'symposium',
-      image: 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'A symposium featuring cutting-edge research from our members.'
-    },
+      title: 'Être femme dans le Sud-Ouest malgache : défis et perspectives',
+      date: '2025-05-29',
+      time: '15h30',
+      location: 'Bibliothèque DEGS, Toliara',
+      type: 'conférence',
+      image: '../images/femme_passee.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },    
     {
       id: 102,
-      title: 'Workshop on Data Analysis',
-      date: '2024-10-15',
-      time: '14:00 - 17:00',
-      location: 'Online',
-      type: 'workshop',
-      image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'Learn advanced data analysis techniques for research.'
-    },
+      title: 'Plurilinguisme et expression artistique : repenser l’inclusion',
+      date: '2025-05-27',
+      time: '15h30',
+      location: 'Bibliothèque DEGS, Toliara' ,
+      type: 'étude',
+      image: '../images/etude_reunion_passee.jpg',
+      description: 'Organisée simultanément à Saint-Denis (Amphithéâtre Lacaussade, Université de La Réunion)'
+    },   
     {
       id: 103,
-      title: 'Annual General Meeting 2024',
-      date: '2024-09-05',
-      time: '10:00 - 12:00',
-      location: 'Madagascar, Morocco',
+      title: 'Étude comparative des variations des pluies et températures dans le contexte du vchangement climatique : cas du Sud-Ouest et d’Ihorombe',
+      date: '2025-05-21',
+      time: '15h30',
+      location: 'Bibliothèque DEGS, Toliara' ,
+      type: 'séminaire',
+      image: '../images/geo_passee.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },   
+
+    {
+      id: 107,
+      title: 'Marche pour l\'océan 2025',
+      date: '2025-05-17',
+      time: '07:00 - 9:00',
+      location: 'Tsongobory, Toliara',
+      type: 'activité',
+      image: '../images/marche_ucms.jpg',
+      description: 'Marche vers Ambondrolava'
+    },
+    {
+      id: 105,
+      title: 'Créer des ponts entre Histoire et Marché du travail dans un monde en mutation / Décolonisation des patrimoines africains',
+      date: '2025-05-14',
+      time: '08h30',
+      location: 'Amphithéâtre Jean Ferlin, Université de Toliara',
+      type: 'conférence',
+      image: '../images/deux_conf_passee.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },   
+    {
+      id: 106,
+      title: 'Les réalités sociales face aux activités d’éducation environnementale dans le cadre de l’Aire Marine Éducative à Ankalika – Toliara',
+      date: '2025-05-08',
+      time: '15h30',
+      location: 'Alliance Française, Toliara',
+      type: 'séminaire',
+      image: '../images/elite_passee.jpg',
+      description: 'Deux conférences'
+    },   
+
+    {
+      id: 108,
+      title: 'L’eau, les vivants humains et non-humains en paysages nourriciers',
+      date: '2025-05-03',
+      time: '09:00 - 11:00',
+      location: 'UC MaroSerana, Toliara',
+      type: 'partage',
+      image: '../images/partage_passee.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },
+    {
+      id: 110,
+      title: 'Etude de la criminalité à Toliara : les outiles et méthodes socio-criminologiques mis à l’épreuve',
+      date: '2025-04-10',
+      time: '16h30',
+      location: 'Alliance Française, Toliara',
       type: 'meeting',
-      image: 'https://images.pexels.com/photos/5427670/pexels-photo-5427670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      description: 'Annual general meeting for all members of UC MaroSerana.'
-    }
+      image: '../images/seminaire_passee_salohy.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },
+    {
+      id: 111,
+      title: 'Souveraineté des États africains sur les ressources naturelles dans le contexte de fragilité',
+      date: '2025-05-01',
+      time: '16h30',
+      location: 'Bibliothèque DEGS, Toliara',
+      type: 'conférence',
+      image: '../images/bonjour_passee.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },
+        {
+      id: 104,
+      title: 'Formation sur la transcription des bandes sonores, axée sur les données relatives aux réserves marines à Sarodrano',
+      date: '2025-04-28',
+      time: '15h30',
+      location: 'UC MaroSerana, Toliara',
+      type: 'formation',
+      image: '../images/formation_stagiaire.jpg',
+      description: 'Formation par l\'équipe de l\'UC MaroSerana pour les stagiaires'
+    },   
+    {
+      id: 112,
+      title: 'Reflexion anthropo-politique sur le kokolampo : Reconstruction du Hazomanga et de la souverainété nationale',
+      date: '2025-04-28',
+      time: '16h00',
+      location: 'Alliance Française, Toliara',
+      type: 'conférence',
+      image: '../images/manara_passee.jpg',
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+    },   
+    {
+      id: 113,
+      title: 'FOJAEB : Forum des Jeunes Africains pour l\'Economie Bleu qui a lieu à Toliara',
+      date: '2025-04-17',
+      type: 'activité',
+      image: '../images/fojaeb_passrr.jpg',
+      description: 'On est ensemble'
+    },   
   ];
 
   // Format date for display
@@ -108,130 +159,140 @@ const Events: React.FC = () => {
       day: 'numeric'
     }).format(date);
   };
-
-  // Filter events based on search term
-  const filteredEvents = activeTab === 'upcoming'
-    ? upcomingEvents.filter(event => 
-        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.type.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : pastEvents.filter(event => 
-        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.type.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+  // Filter events based on search term and type
+  const filteredEvents = (activeTab === 'upcoming' ? upcomingEvents : pastEvents)
+    .filter(event =>
+      (event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (event.location && event.location.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        event.type.toLowerCase().includes(searchTerm.toLowerCase()))
+      && (typeFilter === '' || event.type === typeFilter)
+    );
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-primary-700">
+      <section
+        className="relative pt-24 pb-10 bg-primary-700 min-h-[300px] md:min-h-[400px]"
+        style={{
+          backgroundImage: "url('../images/event_bg.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            <motion.h1 
+            className="text-3xl md:text-4xl font-bold text-white mb-4 mt-16 md:mt-24"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-          >
+            >
             {t('events.title')}
-          </motion.h1>
+            </motion.h1>
         </div>
       </section>
 
       <Section>
-        {/* Tabs and Search */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <div className="flex space-x-4 mb-4 md:mb-0">
-            <button
-              className={`px-4 py-2 rounded-md transition-colors ${
-                activeTab === 'upcoming' 
-                  ? 'bg-primary-700 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-              onClick={() => setActiveTab('upcoming')}
-            >
-              {t('events.upcoming')}
-            </button>
-            <button
-              className={`px-4 py-2 rounded-md transition-colors ${
-                activeTab === 'past' 
-                  ? 'bg-primary-700 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-              onClick={() => setActiveTab('past')}
-            >
-              {t('events.past')}
-            </button>
+      {/* Tabs and Search */}
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+        <div className="flex space-x-4 mb-4 md:mb-0">
+        <button
+          className={`px-4 py-2 rounded-md transition-colors ${
+          activeTab === 'upcoming' 
+            ? 'bg-primary-700 text-white' 
+            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+          onClick={() => setActiveTab('upcoming')}
+        >
+          {t('events.upcoming')}
+        </button>
+        <button
+          className={`px-4 py-2 rounded-md transition-colors ${
+          activeTab === 'past' 
+            ? 'bg-primary-700 text-white' 
+            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+          onClick={() => setActiveTab('past')}
+        >
+          {t('events.past')}
+        </button>
+        </div>
+        
+        <div className="relative w-full md:w-64">
+        <input
+          type="text"
+          placeholder={`${t('common.search')}...`}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-md pl-10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+        </div>
+      </div>
+      {/* Filter Section */}
+      <div className="mb-8 p-4 bg-gray-50 rounded-lg">
+        <div className="flex flex-col md:flex-row items-center gap-4">
+          <div className="flex items-center">
+        <Filter size={18} className="mr-2 text-primary-700" />
+        <span className="font-medium">{t('events.filter')}</span>
           </div>
-          
-          <div className="relative w-full md:w-64">
-            <input
-              type="text"
-              placeholder={`${t('common.search')}...`}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md pl-10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          <div className="flex flex-wrap gap-2">
+        {[
+          { label: 'Tous types', value: '' },
+          { label: 'conférence', value: 'conférence' },
+          { label: 'étude', value: 'étude' },
+          { label: 'séminaire', value: 'séminaire' },
+          { label: 'formation', value: 'formation' },
+          { label: 'activité', value: 'activité' },
+          { label: 'partage', value: 'partage' },
+          { label: 'meeting', value: 'meeting' },
+        ].map((type) => (
+          <button
+            key={type.value}
+            className={`px-3 py-1 border rounded-full text-sm ${
+          (typeFilter === type.value)
+            ? 'bg-primary-700 text-white border-primary-700'
+            : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-100'
+            }`}
+            onClick={() => setTypeFilter(type.value)}
+          >
+            {type.label}
+          </button>
+        ))}
           </div>
         </div>
+      </div>
 
-        {/* Filter Section */}
-        <div className="mb-8 p-4 bg-gray-50 rounded-lg">
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="flex items-center">
-              <Filter size={18} className="mr-2 text-primary-700" />
-              <span className="font-medium">{t('events.filter')}</span>
-            </div>
-            
-            <div className="flex flex-wrap gap-2">
-              <button className="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-100">
-                All Types
-              </button>
-              <button className="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-100">
-                Conference
-              </button>
-              <button className="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-100">
-                Workshop
-              </button>
-              <button className="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-100">
-                Seminar
-              </button>
-            </div>
+      {/* Events Grid */}
+      {filteredEvents.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredEvents.map((event) => (
+          <Card
+          key={event.id}
+          title={event.title}
+          image={event.image}
+          >
+          <div className="flex items-center text-gray-600 mb-2">
+            <Calendar size={16} className="mr-2" />
+            <span>{formatDate(event.date)} • {event.time}</span>
           </div>
+          <div className="flex items-center text-gray-600 mb-4">
+            <MapPin size={16} className="mr-2" />
+            <span>{event.location}</span>
+          </div>
+          <p className="text-gray-600 mb-4">{event.description}</p>
+          <NavLink to={`/events/${event.id}`}>
+            <Button variant="primary" fullWidth>
+            {t('common.learnMore')}
+            </Button>
+          </NavLink>
+          </Card>
+        ))}
         </div>
-
-        {/* Events Grid */}
-        {filteredEvents.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredEvents.map((event) => (
-              <Card
-                key={event.id}
-                title={event.title}
-                image={event.image}
-              >
-                <div className="flex items-center text-gray-600 mb-2">
-                  <Calendar size={16} className="mr-2" />
-                  <span>{formatDate(event.date)} • {event.time}</span>
-                </div>
-                <div className="flex items-center text-gray-600 mb-4">
-                  <MapPin size={16} className="mr-2" />
-                  <span>{event.location}</span>
-                </div>
-                <p className="text-gray-600 mb-4">{event.description}</p>
-                <NavLink to={`/events/${event.id}`}>
-                  <Button variant="primary" fullWidth>
-                    {t('common.learnMore')}
-                  </Button>
-                </NavLink>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-8">
-            <p className="text-xl text-gray-500">{t('events.noEvents')}</p>
-          </div>
-        )}
+      ) : (
+        <div className="text-center py-8">
+        <p className="text-xl text-gray-500">{t('events.noEvents')}</p>
+        </div>
+      )}
       </Section>
     </>
   );

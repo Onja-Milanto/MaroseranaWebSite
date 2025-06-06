@@ -34,21 +34,23 @@ export default {
     researchProjects: 'Projets de recherche',
     researchPublications: 'Publications',
     researchGrants: 'Subventions',
+    history: 'Histoire',
   },
   home: {
     hero: {
       title: 'UC MaroSerana',
       slogan: 'Faire progresser la recherche scientifique ensemble',
-      cta: 'Découvrir l\'association'
+      cta: 'Découvrir l\'unité'
     },
     about: {
-      title: 'Qui sommes-nous',
-      mission: 'Mission',
-      missionText: 'Promouvoir la recherche scientifique et favoriser la collaboration entre chercheurs et institutions.',
-      vision: 'Vision',
-      visionText: 'Un monde où la recherche scientifique est accessible, collaborative et impactante.',
-      values: 'Valeurs',
-      valuesText: 'Excellence, Intégrité, Collaboration, Innovation'
+      title: 'Qui sommes-nous ?',
+      mission: 'Notre mission :',
+      missionText: 'promouvoir une recherche scientifique rigoureuse et engagée, qui éclaire les grands enjeux contemporains, stimule la réflexion critique et contribue activement à la transformation sociale, au service de l’intérêt collectif.',
+      vision: 'Notre vision :',
+      visionText: 'construire une société éclairée, équitable et résiliente grâce à une recherche engagée, indépendante et accessible, au service du bien commun et des générations futures.',
+      values: 'Nos valeurs :',
+      valuesText: 'intégrité, rigueur scientifique, engagement citoyen, inclusion et solidarité. Nous croyons en une recherche éthique, ouverte à tous, porteuse de transformation sociale et respectueuse de la dignité humaine.',
+      learnMore: 'En savoir plus',
     },
     news: {
       title: 'Dernières actualités',
@@ -76,15 +78,15 @@ export default {
     title: 'À propos d\'UC MaroSerana',
     history: {
       title: 'Notre histoire',
-      content: 'UC MaroSerana a été fondée en 2020 dans le but de faire progresser la recherche scientifique et de promouvoir la collaboration entre chercheurs de différentes disciplines.'
+      content: 'UC MaroSerana a été fondée en 2020 avec la conviction que la recherche scientifique est un moteur essentiel du progrès et du développement. Dès ses débuts, l’association s’est donnée pour mission de rassembler des chercheurs issus de différentes disciplines, favorisant ainsi la collaboration interdisciplinaire et l’émergence de projets innovants. Animée par la volonté de créer un espace d’échange et de partage, UC MaroSerana s’est rapidement imposée comme un acteur clé dans la valorisation des travaux de recherche et la promotion de l’excellence scientifique à Madagascar et au-delà. Grâce à l’engagement de ses membres et à la confiance de ses partenaires, l’association a su organiser de nombreux événements, soutenir des projets ambitieux et offrir des opportunités de formation et de développement professionnel à la communauté scientifique. Aujourd’hui, UC MaroSerana continue d’élargir son réseau et d’intensifier ses actions pour répondre aux défis scientifiques contemporains, tout en restant fidèle à ses valeurs fondatrices : ouverture, rigueur, innovation et solidarité.'
     },
     mission: {
       title: 'Notre mission',
-      content: 'Notre mission est de promouvoir la recherche scientifique, de fournir des ressources et un soutien aux chercheurs, et de faciliter la collaboration entre les institutions.'
+      content: 'L’Unité des Chercheurs MaroSerana est un collectif engagé qui a pour mission de promouvoir la recherche scientifique et la réflexion sur les grands enjeux contemporains de notre société. Nous nous engageons à soutenir les chercheurs dans leurs travaux, à favoriser la diffusion des connaissances et à encourager l’interdisciplinarité. Notre objectif est de contribuer activement à la transformation sociale en mettant la science au service de l’intérêt collectif et en éclairant les débats publics sur les questions sociétales majeures.'
     },
     vision: {
       title: 'Notre vision',
-      content: 'Nous envisageons un monde où la recherche scientifique est accessible, collaborative et impactante, menant à des solutions innovantes pour les défis mondiaux.'
+      content: 'Nous envisageons un monde où la recherche scientifique est accessible, collaborative et impactante. Nous croyons que la science doit être au service de l’humanité, en répondant aux défis sociétaux actuels et futurs. Notre vision est de bâtir une communauté scientifique dynamique et inclusive, capable de générer des connaissances qui transforment positivement notre société et préparent les générations futures. Nous aspirons à être un catalyseur de changement, en favorisant l’innovation, la créativité et l’engagement citoyen dans le domaine de la recherche.'
     },
     values: {
       title: 'Nos valeurs',
@@ -139,14 +141,16 @@ export default {
     organizer: 'Organisateur',
     noEvents: 'Aucun événement trouvé',
     detail: {
-      register: 'S\'inscrire à cet événement',
-      speakers: 'Intervenants',
-      program: 'Programme',
-      materials: 'Matériels',
-      related: 'Événements connexes'
+    register: 'S\'inscrire à cet événement',
+    speakers: 'Intervenants',
+    program: 'Programme',
+    materials: 'Matériels',
+    related: 'Événements connexes'
     }
   },
-  
+  auth: {
+    login: 'Se connecter'
+  },
   contact: {
     title: 'Contactez-nous',
     subtitle: 'Nous serions ravis d\'avoir de vos nouvelles',

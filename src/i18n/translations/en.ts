@@ -28,7 +28,7 @@ export default {
     hero: {
       title: 'UC MaroSerana',
       slogan: 'Advancing Scientific Research Together',
-      cta: 'Discover the association'
+      cta: 'Discover the unity'
     },
     about: {
       title: 'Who We Are',

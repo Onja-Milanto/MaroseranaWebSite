@@ -64,18 +64,9 @@ const Header: React.FC = () => {
         label: t('nav.about'),
         link: '/about',
         dropdown: [
+          { label: t('nav.history'), link: '/about' },
           { label: t('nav.team'), link: '/about/team' },
           { label: t('nav.partnerships'), link: '/about/partnerships' },
-        ],
-      },
-      {
-        key: 'research',
-        label: t('nav.research'),
-        link: '/research',
-        dropdown: [
-          { label: t('nav.projects'), link: '/research/projects' },
-          { label: t('nav.publications'), link: '/research/publications' },
-          { label: t('nav.grants'), link: '/research/grants' },
         ],
       },
       {
@@ -83,9 +74,10 @@ const Header: React.FC = () => {
         label: t('nav.events'),
         link: '/events',
         dropdown: [
+          { label: t('events.calendar'), link: '/events' },
           { label: t('events.upcoming'), link: '/events/upcoming' },
           { label: t('events.past'), link: '/events/past' },
-          { label: t('events.calendar'), link: '/events/calendar' },
+
         ],
       },
       {
@@ -304,22 +296,116 @@ const Header: React.FC = () => {
       {/* Login Button */}
       <motion.button
         onClick={() => window.location.href = '/login?popup=true'}
-        className={`ml-4 px-4 py-2 rounded-full font-medium transition-colors duration-200 ${
-        isScrolled
-          ? 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
-          : 'bg-primary-700 text-white hover:bg-primary-800'
+        className={`ml-4 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 overflow-hidden relative ${
+          isScrolled
+        ? 'text-white border border-transparent'
+        : 'bg-primary-700 text-white hover:bg-primary-800'
         }`}
         type="button"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-        delay: navItems.length * 0.08 + 2 * 0.08,
-        duration: 0.4,
-        type: 'spring',
-        stiffness: 80,
+          delay: navItems.length * 0.08 + 2 * 0.08,
+          duration: 0.4,
+          type: 'spring',
+          stiffness: 80,
+        }}
+        style={{
+          position: 'relative',
+          zIndex: 2,
         }}
       >
-        {t('auth.login') || 'Login'}
+        {isScrolled && (
+          <>
+        {/* Animated gradient background */}
+        <motion.span
+          className="absolute inset-0 z-0"
+          initial={{ backgroundPosition: '0% 50%', opacity: 0.8, filter: 'blur(0px)' }}
+          animate={{
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            opacity: [0.8, 1, 0.8],
+            filter: ['blur(0px)', 'blur(4px)', 'blur(0px)'],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatType: 'loop',
+            ease: 'linear',
+          }}
+          style={{
+            background: 'linear-gradient(120deg, #60a5fa 0%, #a5b4fc 40%, #f472b6 70%, #facc15 100%)',
+            backgroundSize: '200% 200%',
+            borderRadius: '9999px',
+            width: '100%',
+            height: '100%',
+            display: 'block',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: 0,
+            boxShadow: '0 0 24px 8px rgba(96,165,250,0.4), 0 0 48px 16px rgba(250,204,21,0.15)',
+            filter: 'blur(2px)',
+          }}
+        />
+        {/* Animated border */}
+        <motion.span
+          className="absolute inset-0 z-10 pointer-events-none"
+          initial={{ opacity: 1, backgroundPosition: '0% 50%' }}
+          animate={{
+            opacity: [1, 0.7, 1],
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            repeatType: 'loop',
+            ease: 'linear',
+          }}
+          style={{
+            borderRadius: '9999px',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: 10,
+            border: '2.5px solid transparent',
+            background: 'linear-gradient(120deg, #60a5fa, #a5b4fc, #f472b6, #facc15) border-box',
+            WebkitMask:
+          'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0) border-box',
+            WebkitMaskComposite: 'xor',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Shiny radial highlight */}
+        <motion.span
+          className="absolute inset-0 z-0 pointer-events-none"
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+          }}
+          style={{
+            background: 'radial-gradient(circle at 70% 30%, #fff7 0%, #fff0 70%)',
+            borderRadius: '9999px',
+            width: '100%',
+            height: '100%',
+            display: 'block',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+        />
+          </>
+        )}
+        <span className="relative z-20 drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] tracking-wide">
+          {t('auth.login') || 'Login'}
+        </span>
       </motion.button>
       {/* Bouton menu mobile */}
       <button

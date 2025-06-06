@@ -5,7 +5,6 @@ import { Calendar, Clock, MapPin, Users, FileText, ArrowLeft } from 'lucide-reac
 import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
-import Card from '../components/ui/Card';
 
 const EventDetail: React.FC = () => {
   const { t } = useTranslation();
