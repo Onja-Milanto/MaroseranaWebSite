@@ -2,9 +2,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n/i18n';
 
+// Composants principaux
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/utils/ScrollToTop';
+import InfoEventPage from './pages/infosevents/InfoEventPage';
+
+
 
 // Pages principales
 import Home from './pages/Home';
@@ -12,8 +16,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Events from './pages/Events';
 import NotFound from './pages/NotFound';
-
 import NewsPage from './pages/NewsPage';
+
 // Sous-pages About
 import AboutTeam from './pages/AboutTeam';
 import AboutPartnerships from './pages/AboutPartnerships';
@@ -33,6 +37,14 @@ import ResourcesPublications from './pages/ResourcesPublications';
 import ResourcesMembership from './pages/ResourcesMembership';
 import ResourcesFAQ from './pages/ResourcesFAQ';
 
+// Pages dynamiques
+import InfoTeamMember from './pages/infoteam/InfoTeamMember';
+
+// Pages individuelles (si tu veux remplacer le fichier dynamique petit à petit)
+import Event1 from './infosevents/1';
+import Event101 from './infosevents/101';
+import Event102 from './infosevents/102';
+
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
@@ -47,6 +59,18 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/events" element={<Events />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/infosevents/:id" element={<InfoEventPage />} />
+
+
+              {/* Sous-routes dynamiques */}
+              <Route path="/infoteam/:id" element={<InfoTeamMember />} />
+              <Route path="/infosevents/:id" element={<InfoEventPage />} />
+
+              {/* Pages spécifiques (si tu veux remplacer [id].tsx petit à petit) */}
+              <Route path="/infosevents/1" element={<Event1 />} />
+              <Route path="/infosevents/101" element={<Event101 />} />
+              <Route path="/infosevents/102" element={<Event102 />} />
 
               {/* Sous-routes About */}
               <Route path="/about/team" element={<AboutTeam />} />
@@ -66,8 +90,6 @@ function App() {
               <Route path="/resources/publications" element={<ResourcesPublications />} />
               <Route path="/resources/membership" element={<ResourcesMembership />} />
               <Route path="/resources/faq" element={<ResourcesFAQ />} />
-
-              <Route path="/news" element={<NewsPage />} />
 
               {/* Page 404 */}
               <Route path="*" element={<NotFound />} />

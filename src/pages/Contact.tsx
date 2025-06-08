@@ -48,22 +48,22 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin size={24} />,
       label: t('contact.info.address'),
-      value: '123 Research Avenue, Casablanca, Morocco'
+      value: 'Toliara, Madagascar'
     },
     {
       icon: <Phone size={24} />,
       label: t('contact.info.phone'),
-      value: '+212 522 123 456'
+      value: '+261 32 89 685 19'
     },
     {
       icon: <Mail size={24} />,
       label: t('contact.info.email'),
-      value: 'contact@ucmaroserana.org'
+      value: 'ucmaroserana@gmail.com'
     }
   ];
   
   const socialLinks = [
-    { icon: <Facebook size={20} />, label: 'Facebook', url: 'https://facebook.com' },
+    { icon: <Facebook size={20} />, label: 'Facebook', url: 'https://www.facebook.com/unitedeschercheursmaroserana' },
     { icon: <Twitter size={20} />, label: 'Twitter', url: 'https://twitter.com' },
     { icon: <Linkedin size={20} />, label: 'LinkedIn', url: 'https://linkedin.com' },
     { icon: <Youtube size={20} />, label: 'YouTube', url: 'https://youtube.com' },
@@ -258,10 +258,18 @@ const Contact: React.FC = () => {
             </div>
             
             <div className="mt-8 h-64 bg-gray-200 rounded-lg">
-              {/* Map would go here */}
-              <div className="h-full flex items-center justify-center text-gray-500">
-                Map Placeholder
-              </div>
+                {/* Google Map showing current position */}
+                <iframe
+                title="Google Map - Current Position"
+                width="100%"
+                height="100%"
+                className="rounded-lg border-0"
+                style={{ minHeight: '100%', minWidth: '100%' }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCg0ukGuAyst4C4AdmtBMr8j_aHhRaeQJE&q=Current+Location&zoom=15"
+                ></iframe>
             </div>
           </motion.div>
         </div>

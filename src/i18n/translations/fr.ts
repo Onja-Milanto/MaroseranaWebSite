@@ -1,4 +1,6 @@
+
 export default {
+  
   common: {
     readMore: 'En savoir plus',
     submit: 'Soumettre',
@@ -13,7 +15,7 @@ export default {
   },
   nav: {
     home: 'Accueil',
-    about: 'À propos',
+    about: 'L\'unité',
     events: 'Événements',
     login: "Se connecter",
     logout: "Se déconnecter",
@@ -25,16 +27,16 @@ export default {
     resources: 'Ressources',
     contact: 'Contact',
     membership: 'Adhésion',
-    partnerships: 'Partenariats',
+    partnerships: 'Partenaires',
     news: 'Actualités',
-    faq: 'FAQ',
+    faq: 'FAQ des ressources',
     eventsUpcoming: 'À venir',
     eventsPast: 'Passés',
     eventsCalendar: 'Calendrier',
     researchProjects: 'Projets de recherche',
     researchPublications: 'Publications',
     researchGrants: 'Subventions',
-    history: 'Histoire',
+    history: 'À propos',
   },
   home: {
     hero: {
@@ -53,8 +55,8 @@ export default {
       learnMore: 'En savoir plus',
     },
     news: {
-      title: 'Dernières actualités',
-      viewAll: 'Voir toutes les actualités'
+      title: 'Ressources utiles',
+      viewAll: 'Voir toutes les ressources'
     },
     events: {
       title: 'Événements à venir',
@@ -102,13 +104,17 @@ export default {
     team: {
       title: 'Notre équipe',
       leadership: 'Direction',
-      board: 'Conseil d\'administration',
-      scientific: 'Comité scientifique'
+      board: 'Membres',
+      scientific: 'Comité scientifique',
+      stagiaires: 'Stagiaires',
+      associés: 'Auxiliaires',
     },
     partnerships: {
-      title: 'Nos partenariats',
+      title: 'Nos partenaires',
       content: 'Nous collaborons avec diverses institutions académiques, organisations non gouvernementales et entreprises pour promouvoir la recherche scientifique et l\'innovation.'
-    }
+    },
+    titleResources: 'Ressources de l\'Unité',
+    contentResources: 'Découvrez nos ressources, y compris des publications, des guides et des outils pour les chercheurs et le grand public.'
   },
   research: {
     title: 'Recherche',
@@ -125,7 +131,41 @@ export default {
       content: 'Nous offrons des subventions pour soutenir les chercheurs dans leurs projets innovants et collaboratifs.'
     }
   },
-  
+  resources: {
+    faq: {
+      questions: {
+        membership: {
+          question: "Comment puis-je devenir membre de l'unité ?",
+          answer: "Pour devenir membre, veuillez consulter la section Adhésion de notre site et suivre les instructions pour soumettre votre candidature."
+        },
+        events: {
+          question: "Comment puis-je m'inscrire à un événement ?",
+          answer: "Vous pouvez vous inscrire à nos événements en visitant la page Événements et en cliquant sur le bouton d'inscription de l'événement qui vous intéresse."
+        },
+        contact: {
+          question: "Comment puis-je contacter l'équipe UC MaroSerana ?",
+          answer: "Vous pouvez nous contacter via le formulaire de contact sur notre site ou en utilisant les informations fournies dans la section Contact."
+        }
+      }
+      
+    },
+    Subtitles: {
+      title: 'Sous-titres',
+      content: 'Nous proposons des sous-titres pour nos vidéos et présentations afin de rendre nos ressources plus accessibles. Vous pouvez trouver les sous-titres disponibles dans la section Publications.'
+    },
+    membership: {
+      benefitsTitle: 'Avantages de l\'adhésion',
+      howToJoinTitle: 'Comment devenir membre',
+      joinButton: 'Devenir membre',
+      joinSubtitle:'Telechargez le formulaire d\'adhésion et suivez les instructions pour nous le renvoyer. Formulaire disponible en bas de page.',
+      cardText:'Formulaire de demande d\'adhésion à l\'association UC MaroSerana',
+      downloadForm: 'Télécharger le formulaire',
+      cardLink: 'https://ucmaroserana.org/formulaire-adhesion.pdf',
+      cardImage: '/images/adhesion_form.png',
+      content: 'En devenant membre de l\'Unité des Chercheurs MaroSerana, vous rejoignez une communauté dynamique dédiée à la promotion de la recherche scientifique et à l\'innovation. Nos membres bénéficient d\'accès exclusifs à des ressources, des événements, des opportunités de collaboration et bien plus encore. Nous vous invitons à télécharger notre formulaire d\'adhésion pour en savoir plus sur les avantages et les conditions d\'adhésion.'
+    },
+    publications: 'Publications'
+  },
   events: {
     title: 'Événements',
     upcoming: 'Événements à venir',
@@ -173,6 +213,14 @@ export default {
   },
   footer: {
   copyright: '© 2025 UC MaroSerana. Tous droits réservés.',
+  newsletter: {
+    title: 'Abonnez-vous à notre newsletter',
+    subtitle: 'Recevez les dernières nouvelles et mises à jour',
+    placeholder: 'Votre adresse email',
+    button: 'S\'abonner',
+    success: 'Merci pour votre inscription !',
+    error: 'Une erreur est survenue. Veuillez réessayer.'
+  },
   links: {
     title: 'Liens rapides',
     home: 'Accueil',
@@ -183,7 +231,7 @@ export default {
     events: 'Événements',
     resources: 'Ressources',
     membership: 'Adhésion',
-    partnerships: 'Partenariats',
+    partnerships: 'Partenaires',
     faq: 'FAQ',
     contact: 'Contact',
     news: 'Actualités',
@@ -191,18 +239,10 @@ export default {
     terms: 'Conditions d\'utilisation',
     sitemap: 'Plan du site'
   },
-  newsletter: {
-    title: 'Abonnez-vous à notre newsletter',
-    placeholder: 'Votre adresse email',
-    button: 'S\'abonner'
-  }
-},
-  resources: {
-  membership: {
-    benefitsTitle: 'Avantages de l\'adhésion',
-    howToJoinTitle: 'Comment devenir membre',
-    joinButton: 'Devenir membre',
-  },
+  // Removed duplicate resources property (merged above)
+  benefitsTitle: 'Avantages de l\'adhésion',
+  howToJoinTitle: 'Comment devenir membre',
+  joinButton: 'Devenir membre',
   publications: 'Publications'
 },
 

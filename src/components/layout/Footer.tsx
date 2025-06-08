@@ -121,9 +121,9 @@ const secondaryLinks = [
                 />
                 <button
                   type="submit"
-                  className="flex justify-center items-center px-4 py-2 bg-secondary-400 hover:bg-secondary-500 text-primary-700 font-medium rounded-md transition-colors duration-200"
+                  className="flex justify-center items-center px-4 py-2 bg-white hover:bg-secondary-400 text-primary-700 font-medium rounded-md transition-colors duration-200 border border-secondary-400"
                 >
-                  <Mail size={18} className="mr-2" />
+                  <Mail size={18} className="mr-2 text-secondary-400" />
                   {t('footer.newsletter.button')}
                 </button>
               </div>

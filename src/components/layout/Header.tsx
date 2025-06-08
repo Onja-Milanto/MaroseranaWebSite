@@ -14,6 +14,7 @@ const Header: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
 
     // Gestion du scroll pour changer le style du header
     useEffect(() => {
@@ -403,9 +404,62 @@ const Header: React.FC = () => {
         />
           </>
         )}
-        <span className="relative z-20 drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] tracking-wide">
+        <span
+          className="relative z-20 drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] tracking-wide"
+          onClick={(e) => {
+            e.preventDefault();
+            setShowLoginPopup(true);
+          }}
+        >
           {t('auth.login') || 'Login'}
         </span>
+        {/* Auth Login Popup */}
+        <AnimatePresence>
+          {showLoginPopup && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40"
+              onClick={() => setShowLoginPopup(false)}
+            >
+              <div
+          className="bg-white rounded-xl shadow-2xl p-8 relative w-full max-w-md"
+          onClick={e => e.stopPropagation()}
+              >
+          <button
+            className="absolute top-3 right-3 text-gray-500 hover:text-primary-700"
+            onClick={() => setShowLoginPopup(false)}
+            aria-label="Close"
+            type="button"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          {/* Replace below with your actual login form/component */}
+          <h2 className="text-xl font-bold mb-4">{t('auth.login') || 'Login'}</h2>
+          <form>
+            <input
+              type="email"
+              placeholder={t('auth.email') || 'Email'}
+              className="w-full mb-3 px-4 py-2 border rounded"
+            />
+            <input
+              type="password"
+              placeholder={t('auth.password') || 'Password'}
+              className="w-full mb-3 px-4 py-2 border rounded"
+            />
+            <button
+              type="submit"
+              className="w-full bg-primary-700 text-white py-2 rounded hover:bg-primary-800"
+            >
+              {t('auth.login') || 'Login'}
+            </button>
+          </form>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.button>
       {/* Bouton menu mobile */}
       <button
