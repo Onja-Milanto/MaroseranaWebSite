@@ -6,7 +6,7 @@ import i18n from './i18n/i18n';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/utils/ScrollToTop';
-import InfoEventPage from './pages/infosevents/InfoEventPage';
+import InfoEventPage from './pages/InfoEventPage';
 
 
 
