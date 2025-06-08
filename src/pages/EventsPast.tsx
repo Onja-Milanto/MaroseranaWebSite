@@ -34,33 +34,33 @@ const EventsPast = () => {
   const pastEvents: Event[] = [
     {
       id: 101,
-      title: "Être femme dans le Sud-Ouest malgache : défis et perspectives",
+      title: "Etre femme dans le Sud-Ouest malgache : defis et perspectives",
       date: "2025-05-29",
       time: "15h30",
-      location: "Bibliothèque DEGS, Toliara",
-      type: "conférence",
+      location: "Bibliotheque DEGS, Toliara",
+      type: "conference",
       image: "../images/femme_passee.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/101"
     },
     {
       id: 102,
       title: "Plurilinguisme et expression artistique : repenser l'inclusion",
       date: "2025-05-27",
       time: "15h30",
-      location: "Bibliothèque DEGS, Toliara",
-      type: "étude",
+      location: "Bibliotheque DEGS, Toliara",
+      type: "etude",
       image: "../images/etude_reunion_passee.jpg",
-      description: "Organisée simultanément à Saint-Denis (Université de La Réunion)"
+      description: "/infosevents/102"
     },
     {
       id: 103,
-      title: "Étude comparative des variations des pluies et températures : cas du Sud-Ouest et d'Ihorombe",
+      title: "Etude comparative des variations des pluies et temperatures : cas du Sud-Ouest et d'Ihorombe",
       date: "2025-05-21",
       time: "15h30",
-      location: "Bibliothèque DEGS, Toliara",
-      type: "séminaire",
+      location: "Bibliotheque DEGS, Toliara",
+      type: "seminaire",
       image: "../images/geo_passee.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/103"
     },
     {
       id: 107,
@@ -244,9 +244,7 @@ const EventsPast = () => {
               </div>
               <div className="p-4 pt-0">
                 <a
-                  href={event.description.startsWith('http') ? event.description : '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={event.description}
                   className="inline-block w-full text-center px-4 py-2 bg-primary-700 text-white rounded-md hover:bg-primary-800 transition-colors"
                 >
                   {t('common.readMore')}
