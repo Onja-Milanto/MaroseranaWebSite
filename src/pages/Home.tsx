@@ -10,6 +10,7 @@ import Button from "../components/ui/Button"
 import Card from "../components/ui/Card"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   const { t } = useTranslation()
@@ -22,22 +23,6 @@ const Home: React.FC = () => {
       date: "2025-04-15",
       excerpt: "Cette formation a pour but de renforcer les compétences des stagiaires dans divers domaines de recherche.",
       image: "./images/formation_stagiaire.jpg",
-    },
-    {
-      id: 2,
-      title: "Registration Open for Annual Conference",
-      date: "2025-04-10",
-      excerpt: "Join us for our annual conference featuring keynote speakers from around the world.",
-      image:
-        "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-    {
-      id: 3,
-      title: "New Grant Opportunities Available",
-      date: "2025-04-05",
-      excerpt: "Apply for our latest research grants in various scientific disciplines.",
-      image:
-        "https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
   ]
 
@@ -411,9 +396,14 @@ const Home: React.FC = () => {
                 <p className="text-gray-600 mb-4">{latestNews[0].excerpt}</p>
               </div>
               <div className="mt-auto">
-                <Button variant="outline" icon={<ArrowRight size={16} />} iconPosition="right" className="w-full mt-2">
-                  {t("common.readMore")}
-                </Button>
+            <Link
+              to="/infosevents/104"
+              className="btn btn-outline w-full mt-2 flex items-center justify-center"
+            >
+              {t("common.readMore")}
+              <ArrowRight size={16} className="ml-2" />
+            </Link>
+
               </div>
             </Card>
             {/* 2ème card: fichier utile - formulaire d'adhésion (sans image, flèche vers le bas pour download) */}

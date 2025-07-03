@@ -17,10 +17,10 @@ const InfoTeam2: React.FC = () => {
     image: "../../../images/fereta3.jpg",
     bio: "Masterant en Géographie sociale, Assistant Académique en Géographie.",
     email: "manjaka.fereta@maroserana.org",
-    phone: "+261 38 19 071 40 ",
+    phone: "+261 32 89 685 19 ",
     location: "Toliara, Madagascar",
     joinDate: "2019-03-10",
-    specialties: ["Géographie sociale", "Recherche académique", "Leadership", "la géographie sociale", "l'anthropologie de l'environnement"],
+    specialties: ["Géographie sociale", "Recherche académique", "Leadership", "Géographie sociale", "Anthropologie de l'environnement"],
     education: [
       "Master en Géographie sociale (en cours) - Université de Toliara",
       "Licence en Géographie - Université de Toliara",

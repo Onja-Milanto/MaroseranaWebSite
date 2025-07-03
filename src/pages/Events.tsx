@@ -22,7 +22,7 @@ const Events: React.FC = () => {
       location: 'Hotel des Finances, Toliara',
       type: 'séminaire',
       image: '../images/economie_venir.jpg',
-      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara'
+      description: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara',
     },
   ];
 
@@ -274,7 +274,7 @@ const Events: React.FC = () => {
                   <span>{event.location}</span>
                 </div>
                 <p className="text-gray-600 mb-4">{event.description}</p>
-                    <NavLink to={`/infoevents/${event.id}`}>
+                    <NavLink to={`/infosevents/${event.id}`}>
                     <Button variant="primary" fullWidth>
                       {t('common.learnMore')}
                     </Button>

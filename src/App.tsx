@@ -44,6 +44,18 @@ import InfoTeamMember from './pages/infoteam/InfoTeamMember';
 import Event1 from './infosevents/1';
 import Event101 from './infosevents/101';
 import Event102 from './infosevents/102';
+import Event103 from './infosevents/103';
+import Event104 from './infosevents/104';
+import Event105 from './infosevents/105';
+import Event106 from './infosevents/106';
+import Event107 from './infosevents/107';
+import Event108 from './infosevents/108';
+import Event109 from './infosevents/109';
+import Event110 from './infosevents/110';
+import Event111 from './infosevents/111';
+import Event112 from './infosevents/112';
+import Event113 from './infosevents/113';
+import Event114 from './infosevents/114';
 
 function App() {
   return (
@@ -71,6 +83,20 @@ function App() {
               <Route path="/infosevents/1" element={<Event1 />} />
               <Route path="/infosevents/101" element={<Event101 />} />
               <Route path="/infosevents/102" element={<Event102 />} />
+              <Route path="/infosevents/103" element={<Event103 />} />
+              <Route path="/infosevents/104" element={<Event104 />} />
+              <Route path="/infosevents/105" element={<Event105 />} />
+              <Route path="/infosevents/106" element={<Event106 />} />
+              <Route path="/infosevents/107" element={<Event107 />} />
+              <Route path="/infosevents/108" element={<Event108 />} />
+              <Route path="/infosevents/109" element={<Event109 />} />
+              <Route path="/infosevents/110" element={<Event110 />} />
+              <Route path="/infosevents/111" element={<Event111 />} />
+              <Route path="/infosevents/112" element={<Event112 />} />
+              <Route path="/infosevents/113" element={<Event113 />} />
+              <Route path="/infosevents/114" element={<Event114 />} />
+
+              {/* Sous-routes Contact */}
 
               {/* Sous-routes About */}
               <Route path="/about/team" element={<AboutTeam />} />

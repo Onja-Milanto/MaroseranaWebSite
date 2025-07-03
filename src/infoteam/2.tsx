@@ -14,7 +14,7 @@ const InfoTeam1: React.FC = () => {
     id: 2,
     name: "Dr. VERIZA Francis",
     title: "Directeur Académique",
-    image: "../../../images/dr_veriza.jpg",
+    image: "../../../images/vraiveriza.jpg",
     bio: "Maître de conférences en géographie, enseignant actif et contributeur à des projets environnementaux internationaux.",
     email: "francis.veriza@maroserana.org",
     phone: "+261 34 12 345 67",

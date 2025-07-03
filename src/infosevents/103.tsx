@@ -6,31 +6,31 @@ import { NavLink } from "react-router-dom";
 import { ArrowLeft, Calendar, MapPin, User, Mic, Type } from "lucide-react";
 import Section from "../components/ui/Section";
 
-const InfoEvent102 = () => {
+const InfoEvent103 = () => {
   const { t } = useTranslation();
 
   const event = {
-    id: 102,
-    title: "Les vezo face au changement climatique : traditions et résilience",
-    date: "2025-06-05",
-    time: "14h00",
-    location: "Amphithéâtre DEGS, Toliara",
-    type: "conférence-débat",
-    mainSpeaker: "Prof. Jean-Michel Lebigre",
-    moderator: "Dr. Ny Aina Ravalitera",
+    id: 103,
+    title: "L’innovation sociale au service du développement rural",
+    date: "2025-05-12",
+    time: "09h30",
+    location: "Centre Universitaire de Fianarantsoa",
+    type: "atelier participatif",
+    mainSpeaker: "Mme. Saholy Andriambololona",
+    moderator: "Prof. Hery Rakotozafy",
     summary:
-      "Une conférence-débat autour des adaptations sociales, culturelles et économiques des communautés vezo face aux impacts croissants du changement climatique sur le littoral sud-ouest de Madagascar.",
+      "Un atelier interactif sur les leviers d’innovation sociale dans les territoires ruraux malgaches, axé sur l’éducation, l’agriculture durable et les dynamiques communautaires.",
     fullDescription: `
-      Les communautés vezo, peuple de la mer du sud-ouest malgache, sont confrontées à une intensification des événements climatiques extrêmes, à l’érosion côtière et à la raréfaction des ressources halieutiques. 
+      Cet atelier a rassemblé des chercheurs, des acteurs du développement local et des étudiants autour des problématiques clés du développement rural à Madagascar. 
       
-      Cette conférence a permis de croiser regards scientifiques et témoignages de terrain sur les stratégies de résilience des vezo. Prof. Jean-Michel Lebigre, anthropologue spécialiste du littoral, a présenté ses recherches menées depuis deux décennies sur les mutations sociétales induites par le climat.
+      Mme. Saholy Andriambololona, experte en innovation territoriale, a introduit différentes approches d’innovation sociale testées dans les Hautes Terres. L’accent a été mis sur la co-construction de solutions adaptées au contexte local, en tenant compte des contraintes environnementales, culturelles et économiques.
 
-      Le débat a porté sur la transmission des savoirs traditionnels, la mobilité géographique, les enjeux d’identité et la coopération entre chercheurs, ONG et communautés locales.
+      Des ateliers en petits groupes ont permis de travailler sur des cas concrets : amélioration des coopératives agricoles, accès équitable à l’eau, renforcement de la gouvernance locale, et intégration des savoirs autochtones dans les projets de développement.
     `,
     images: [
-      "/images/vezo_event1.jpg",
-      "/images/vezo_event2.jpg",
-      "/images/vezo_event3.jpg",
+      "/images/atelier_dev1.jpg",
+      "/images/atelier_dev2.jpg",
+      "/images/atelier_dev3.jpg",
     ],
   };
 
@@ -115,7 +115,7 @@ const InfoEvent102 = () => {
                 </li>
                 <li className="flex items-center">
                   <User className="mr-2" size={18} />
-                  Intervenant : {event.mainSpeaker}
+                  Intervenante : {event.mainSpeaker}
                 </li>
                 <li className="flex items-center">
                   <Mic className="mr-2" size={18} />
@@ -130,4 +130,4 @@ const InfoEvent102 = () => {
   );
 };
 
-export default InfoEvent102;
+export default InfoEvent103;

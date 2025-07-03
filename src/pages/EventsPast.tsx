@@ -38,7 +38,7 @@ const EventsPast = () => {
       date: "2025-05-29",
       time: "15h30",
       location: "Bibliotheque DEGS, Toliara",
-      type: "conference",
+      type: "conférence",
       image: "../images/femme_passee.jpg",
       description: "/infosevents/101"
     },
@@ -70,7 +70,7 @@ const EventsPast = () => {
       location: "Tsongobory, Toliara",
       type: "activité",
       image: "../images/marche_ucms.jpg",
-      description: "Marche vers Ambondrolava"
+      description: "/infosevents/107"
     },
     {
       id: 105,
@@ -80,7 +80,7 @@ const EventsPast = () => {
       location: "Amphithéâtre Jean Ferlin, Université de Toliara",
       type: "conférence",
       image: "../images/deux_conf_passee.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/105"
     },
     {
       id: 106,
@@ -90,7 +90,7 @@ const EventsPast = () => {
       location: "Alliance Française, Toliara",
       type: "séminaire",
       image: "../images/elite_passee.jpg",
-      description: "Deux conférences"
+      description: "/infosevents/106"
     },
     {
       id: 108,
@@ -100,7 +100,7 @@ const EventsPast = () => {
       location: "UC MaroSerana, Toliara",
       type: "partage",
       image: "../images/partage_passee.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/108"
     },
     {
       id: 110,
@@ -110,7 +110,7 @@ const EventsPast = () => {
       location: "Alliance Française, Toliara",
       type: "meeting",
       image: "../images/seminaire_passee_salohy.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/110"
     },
     {
       id: 111,
@@ -120,7 +120,7 @@ const EventsPast = () => {
       location: "Bibliothèque DEGS, Toliara",
       type: "conférence",
       image: "../images/bonjour_passee.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/111"
     },
     {
       id: 104,
@@ -130,7 +130,7 @@ const EventsPast = () => {
       location: "UC MaroSerana, Toliara",
       type: "formation",
       image: "../images/formation_stagiaire.jpg",
-      description: "Formation par l'équipe UC MaroSerana"
+      description: "/infosevents/104"
     },
     {
       id: 112,
@@ -140,15 +140,17 @@ const EventsPast = () => {
       location: "Alliance Française, Toliara",
       type: "conférence",
       image: "../images/manara_passee.jpg",
-      description: "https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"
+      description: "/infosevents/112"
     },
     {
       id: 113,
       title: "FOJAEB : Forum des Jeunes Africains pour l'Économie Bleue",
       date: "2025-04-17",
       type: "activité",
+      location: "Score, Toliara",
+      time: "08h00",
       image: "../images/fojaeb_passrr.jpg",
-      description: "On est ensemble"
+      description: "/infosevents/113"
     }
   ];
 
@@ -161,9 +163,18 @@ const EventsPast = () => {
     }).format(date);
   };
 
-  const filteredEvents = activeFilter === 'Tous types'
-    ? pastEvents
-    : pastEvents.filter(event => event.type === activeFilter.toLowerCase());
+const sortedEvents = [...pastEvents].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+const normalize = (str: string) =>
+  str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+const filteredEvents = activeFilter === 'Tous types'
+  ? sortedEvents
+  : sortedEvents.filter(
+      event => normalize(event.type) === normalize(activeFilter)
+    );
 
   return (
     <>

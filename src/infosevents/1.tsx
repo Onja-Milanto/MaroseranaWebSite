@@ -2,8 +2,8 @@ import React from 'react';
 
 const Event1: React.FC = () => (
   <div>
-    <h1>Événement 1</h1>
-    <p>Détails spécifiques pour l’événement 1</p>
+    <h1>La croissance économique malagasy : comprendre les facteurs qui la stimulent. Un essai de politique et perspectives pour Madagascar</h1>
+    <a href="https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara"><p>Rejoindre la réunion</p></a>
   </div>
 );
 

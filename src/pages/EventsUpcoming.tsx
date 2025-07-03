@@ -13,7 +13,7 @@ const EventsUpcoming = () => {
       organizer: 'UC MaroSerana',
       description:
         "Rejoignez-nous pour en apprendre plus sur la croissance de l'économie à Madagascar.",
-      link: '#',
+      link: 'https://meet.jit.si/Seminaire_Doctoral_Univ_Toliara',
     },
   ];
 

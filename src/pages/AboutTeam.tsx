@@ -18,7 +18,7 @@ const teamMembers = [
     id: 2,
     name: "Dr. VERIZA Francis",
     title: "Directeur Académique",
-    image: "../../images/dr_veriza.jpg",
+    image: "../../images/vraiveriza.jpg",
     bio: "Maître de conférences en géographie, enseignant actif et contributeur à des projets environnementaux internationaux.",
   },
   {
@@ -39,8 +39,8 @@ const teamMembers = [
     id: 5,
     name: "Mme HADIDJA Aboudou",
     title: "Trésorière",
-    image: "../images/treso.png",
-    bio: "Renowned physicist with contributions to quantum computing research.",
+    image: "../images/hadjida.jpg",
+    bio: "Spécialiste en anthropologie de l'environnement.",
   },
   {
     id: 6,
